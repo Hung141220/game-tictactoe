@@ -1,0 +1,2 @@
+- stateless functional component: component nhưng không sd state;
+- stateful functional component: component có sử dụng state
