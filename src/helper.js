@@ -11,11 +11,11 @@ export function handleWinner(cells) {
         [2, 4, 6],
     ];
 
-    lines.forEach((item, index) => {
+    lines.some((item, index) => {
         const [a, b, c] = item;
         if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
             winner = cells[a]
-            return;
+            return true;
         }
     });
     return winner;
