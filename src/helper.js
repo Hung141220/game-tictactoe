@@ -1,4 +1,5 @@
 export function handleWinner(cells) {
+    let winner;
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -10,8 +11,12 @@ export function handleWinner(cells) {
         [2, 4, 6],
     ];
 
-    return lines.some((item, index) => {
+    lines.forEach((item, index) => {
         const [a, b, c] = item;
-        return cells[a] && cells[a] === cells[b] && cells[a] === cells[c];
+        if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+            winner = cells[a]
+            return;
+        }
     });
+    return winner;
 }
