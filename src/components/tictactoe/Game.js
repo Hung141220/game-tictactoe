@@ -21,16 +21,17 @@ function Game() {
         setXIsNext(true);
     };
     useEffect(() => {
+        // tự động đi nước tiếp theo 
         if (!xIsNext) {
             const boardsCopy = [...boards];
             const arrIndex = [];
             boardsCopy.forEach((item, index) => {
                 if (!item) arrIndex.push(index);
             });
-            // console.log(arrIndex);
             boardsCopy[arrIndex[Math.floor(Math.random() * arrIndex.length)]] =
                 "O";
 
+            //nếu win r thì kh setState nữa
             if (!winner) {
                 setBoards(boardsCopy);
                 setXIsNext(!xIsNext);
